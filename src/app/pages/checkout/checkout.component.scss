@@ -1,0 +1,41 @@
+.container{
+  display: flex;
+  align-items: center;
+  padding: 1rem 5rem;
+
+  .item{
+    flex: 1 1 auto;
+  }
+  .form{
+    width: 100%;
+  }
+  .form__element{
+    padding: 5px 0px 5px 2px;
+    width: 100%;
+    margin-bottom: .3rem;
+  }
+
+  .name{
+    color: #fff;
+  }
+
+  p{
+    color: rgb(243, 32, 162);
+  }
+  mat-radio-button{
+    color: #fff;
+    padding: 5px 5px 5px 5px;
+  }
+}
+.container__button{
+  margin: 0 auto;
+  display: block;
+  width: 40%;
+
+  button{
+    width: 100%;
+  }
+}
+
+
+

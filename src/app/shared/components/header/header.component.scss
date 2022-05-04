@@ -1,0 +1,13 @@
+.spacer{
+  flex: 1 1 auto;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.mouseHover:hover{
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.7 ease-in-out;
+}

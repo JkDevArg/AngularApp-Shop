@@ -1,0 +1,27 @@
+.container__table {
+  width: 90%;
+  margin: 0 6%;
+
+  table{
+    font-size: 13px;
+
+    th{
+      background-color: rgb(194,24,91);
+      color: #fff;
+      padding: 10px;
+      text-align: left;
+    }
+    td{
+      background-color: #eee;
+      padding: 1rem;
+    }
+  }
+
+  .container__total{
+    margin-top: 5px;
+    .total{
+      color: rgb(194,24,91);
+      font-size: 1.2rem;
+    }
+  }
+}

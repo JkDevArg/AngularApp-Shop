@@ -1,0 +1,40 @@
+<div class="container">
+  <form class="form item" #checkoutForm="ngForm" autocomplete="off">
+    <mat-form-field class="form__element name">
+      <input matInput placeholder="Name" required [(ngModel)]="model.name" name="name" #name="ngModel" />
+      <mat-error *ngIf="name.invalid || name.pristine">Name is required</mat-error>
+    </mat-form-field>
+    <mat-radio-group class="form__element">
+      <p>Choose an option:</p>
+      <mat-radio-button value="pickup" (change)="onPickupOrDelivery(false)">Pickup</mat-radio-button>
+      <mat-radio-button value="Delivery" (change)="onPickupOrDelivery(true)" checked>Delivery</mat-radio-button>
+    </mat-radio-group>
+    <ng-container *ngIf="isDelivery; else showStores" >
+      <mat-form-field class="form__element">
+        <input matInput placeholder="Shipping Address" required [(ngModel)]="model.shippingAddress"
+          name="shippingAddress" #shippingAddress="ngModel" />
+        <mat-error *ngIf="shippingAddress.invalid || shippingAddress.pristine">Shipping Address is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form__element">
+        <input matInput placeholder="City" required [(ngModel)]="model.city" name="city" #city="ngModel" />
+        <mat-error *ngIf="city.invalid || city.pristine">City is required</mat-error>
+      </mat-form-field>
+    </ng-container>
+    <ng-template #showStores>
+      <mat-form-field class="form__element">
+        <mat-label>Select me</mat-label>
+        <mat-select name="store" #store="ngModel" [(ngModel)]="model.store">
+          <mat-option [value]="tienda" *ngFor="let tienda of stores">
+            {{ tienda.name }} - {{ tienda.openingHours }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-template>
+  </form>
+</div>
+<app-details></app-details>
+<div class="container__button">
+  <button [disabled]="!checkoutForm.form.valid" mat-raised-button color="primary" type="submit" (click)="onSubmit(checkoutForm)">
+    Checkout
+  </button>
+</div>

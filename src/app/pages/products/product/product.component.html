@@ -1,0 +1,14 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{ product.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content> {{product.description}} </mat-card-content>
+  <mat-card-actions>
+    <ng-container *ngIf="product.stock === 0; else showButton" >
+      <button mat-flat-button color="primary" (click)="onClick()" [disabled]="product.stock === 0">Sin Stock <mat-icon>remove_shopping_cart</mat-icon></button>
+    </ng-container>
+    <ng-template #showButton>
+      <button mat-flat-button color="primary" (click)="onClick()">Buy {{ product.price | currency }} <mat-icon>add_shopping_cart</mat-icon></button>
+    </ng-template>
+    </mat-card-actions>
+</mat-card>
